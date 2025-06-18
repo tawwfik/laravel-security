@@ -77,18 +77,18 @@ class SecureAll extends BaseSecurityCommand
         $this->info('🔒 Step 1/5: Securing .env file...');
 
         try {
-            $command = new SecureEnv($this->filesystem);
-            $command->setLaravel($this->getLaravel());
-
-            // Pass options
+            $options = [];
             if ($this->option('dry-run')) {
-                $command->input->setOption('dry-run', true);
+                $options['--dry-run'] = true;
             }
             if ($this->option('backup')) {
-                $command->input->setOption('backup', true);
+                $options['--backup'] = true;
+            }
+            if ($this->option('force')) {
+                $options['--force'] = true;
             }
 
-            $result = $command->handle();
+            $result = $this->call('secure:env', $options);
 
             if ($result === 0) {
                 $this->successfulCommands[] = 'secure:env';
@@ -113,17 +113,18 @@ class SecureAll extends BaseSecurityCommand
         $this->info('🔒 Step 2/5: Generating hardened .htaccess...');
 
         try {
-            $command = new SecureHtaccess($this->filesystem);
-            $command->setLaravel($this->getLaravel());
-
+            $options = [];
             if ($this->option('dry-run')) {
-                $command->input->setOption('dry-run', true);
+                $options['--dry-run'] = true;
             }
             if ($this->option('backup')) {
-                $command->input->setOption('backup', true);
+                $options['--backup'] = true;
+            }
+            if ($this->option('force')) {
+                $options['--force'] = true;
             }
 
-            $result = $command->handle();
+            $result = $this->call('secure:htaccess', $options);
 
             if ($result === 0) {
                 $this->successfulCommands[] = 'secure:htaccess';
@@ -148,14 +149,12 @@ class SecureAll extends BaseSecurityCommand
         $this->info('🔒 Step 3/5: Creating security.txt file...');
 
         try {
-            $command = new SecureSecurityFile($this->filesystem);
-            $command->setLaravel($this->getLaravel());
-
+            $options = [];
             if ($this->option('dry-run')) {
-                $command->input->setOption('dry-run', true);
+                $options['--dry-run'] = true;
             }
 
-            $result = $command->handle();
+            $result = $this->call('secure:security-file', $options);
 
             if ($result === 0) {
                 $this->successfulCommands[] = 'secure:security-file';
@@ -180,17 +179,15 @@ class SecureAll extends BaseSecurityCommand
         $this->info('🔒 Step 4/5: Generating secure robots.txt...');
 
         try {
-            $command = new SecureRobots($this->filesystem);
-            $command->setLaravel($this->getLaravel());
-
+            $options = [];
             if ($this->option('dry-run')) {
-                $command->input->setOption('dry-run', true);
+                $options['--dry-run'] = true;
             }
             if ($this->option('backup')) {
-                $command->input->setOption('backup', true);
+                $options['--backup'] = true;
             }
 
-            $result = $command->handle();
+            $result = $this->call('secure:robots', $options);
 
             if ($result === 0) {
                 $this->successfulCommands[] = 'secure:robots';
@@ -215,14 +212,12 @@ class SecureAll extends BaseSecurityCommand
         $this->info('🔒 Step 5/5: Performing security audit...');
 
         try {
-            $command = new SecurityAudit($this->filesystem);
-            $command->setLaravel($this->getLaravel());
-
+            $options = [];
             if ($this->option('dry-run')) {
-                $command->input->setOption('dry-run', true);
+                $options['--dry-run'] = true;
             }
 
-            $result = $command->handle();
+            $result = $this->call('security:audit', $options);
 
             if ($result === 0) {
                 $this->successfulCommands[] = 'security:audit';

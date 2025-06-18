@@ -21,7 +21,7 @@ class SecurityAudit extends BaseSecurityCommand
                             {--dry-run : Show what would be checked without making changes}
                             {--output= : Output format (text, json, html)}
                             {--fix : Automatically fix issues where possible}
-                            {--verbose : Show detailed information}';
+                            {--detailed : Show detailed information}';
 
     protected $description = 'Perform a comprehensive security audit of the Laravel application';
 
@@ -90,7 +90,7 @@ class SecurityAudit extends BaseSecurityCommand
             $filePath = $this->getBasePath() . '/' . $file;
 
             if ($this->fileExists($filePath)) {
-                $currentPermissions = $this->filesystem->chmod($filePath);
+                $currentPermissions = fileperms($filePath) & 0777;
 
                 if ($currentPermissions !== $config['expected']) {
                     $this->addIssue('File Permissions', "{$config['description']} ({$file}) has insecure permissions: " . decoct($currentPermissions));
