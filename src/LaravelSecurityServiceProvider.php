@@ -11,6 +11,7 @@ use Tawfik\LaravelSecurity\Commands\SecureHtaccess;
 use Tawfik\LaravelSecurity\Commands\SecureRobots;
 use Tawfik\LaravelSecurity\Commands\SecureSecurityFile;
 use Tawfik\LaravelSecurity\Commands\SecurityAudit;
+use Tawfik\LaravelSecurity\Commands\SecurityScan;
 
 /**
  * Laravel Security Service Provider
@@ -51,6 +52,7 @@ class LaravelSecurityServiceProvider extends ServiceProvider
                 SecureRobots::class,
                 SecureAll::class,
                 SecurityAudit::class,
+                SecurityScan::class,
             ]);
         }
 

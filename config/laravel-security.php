@@ -87,15 +87,20 @@ return [
             'preload'            => true,
         ],
         'csp'                 => [
-            'enabled'     => true,
-            'default_src' => "'self'",
-            'script_src'  => "'self' 'unsafe-inline'",
-            'style_src'   => "'self' 'unsafe-inline'",
-            'img_src'     => "'self' data: https:",
-            'font_src'    => "'self'",
-            'connect_src' => "'self'",
-            'frame_src'   => "'none'",
-            'object_src'  => "'none'",
+            'enabled'       => true,
+            'policy'        => "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self'; frame-ancestors 'none';",
+            'nonce_enabled' => false,
+            'report_only'   => false,
+            'report_uri'    => null,
+        ],
+        'disable_for_routes'  => [
+            // Routes where security headers should be disabled
+            // 'api/*',
+            // 'webhooks/*',
+        ],
+        'custom_headers'      => [
+            // Add custom security headers
+            // 'X-Custom-Security' => 'value',
         ],
     ],
 

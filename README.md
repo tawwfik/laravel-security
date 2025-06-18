@@ -14,6 +14,7 @@ A comprehensive and advanced security package for Laravel 9+ applications runnin
 - **`secure:robots`** - Generate secure robots.txt to prevent crawling of sensitive files
 - **`secure:all`** - Run all security commands with comprehensive reporting
 - **`security:audit`** - Comprehensive security audit and risk assessment
+- **`security:scan`** - Advanced vulnerability scanner with risk scoring
 
 ### 🛡️ Advanced Protection
 
@@ -138,6 +139,41 @@ php artisan secure:robots \
 - `/storage/*`, `/vendor/*`, `/node_modules/*`
 - `/config/*`, `/backup/*`, `/database/*`
 - Sensitive files like `.env`, `.git`
+
+### Advanced Vulnerability Scanner
+
+```bash
+# Run comprehensive vulnerability scan
+php artisan security:scan
+
+# Generate JSON report
+php artisan security:scan --format=json
+
+# Generate HTML report
+php artisan security:scan --format=html
+
+# Save report to specific file
+php artisan security:scan --report=security-report.json
+
+# Show detailed information
+php artisan security:scan --detailed
+```
+
+**Scans for:**
+- Environment security issues (debug mode, weak keys)
+- File permission vulnerabilities
+- Exposed sensitive files
+- Configuration security gaps
+- Database security recommendations
+- Session and authentication issues
+- Logging and server security
+
+**Features:**
+- Risk scoring (0-100)
+- Multiple output formats (text, JSON, HTML)
+- Detailed vulnerability categorization
+- Actionable recommendations
+- Comprehensive reporting
 
 ### Comprehensive Security Audit
 
@@ -357,7 +393,7 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ### Getting Help
 
-- **�� Documentation**: [Documentation](https://github.com/tawwfik/laravel-security/tree/main/docs)
+- **📖 Documentation**: [Documentation](https://github.com/tawwfik/laravel-security/tree/main/docs)
 - **📋 Installation Guide**: [Installation Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Installation.md)
 - **🔧 Troubleshooting**: [Troubleshooting Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Advanced/Troubleshooting.md)
 - **🐛 Bug Reports**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)

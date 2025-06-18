@@ -22,7 +22,8 @@ class SecureAll extends BaseSecurityCommand
                             {--dry-run : Show what would be changed without making changes}
                             {--backup : Create backups before modifications}
                             {--skip-audit : Skip the security audit}
-                            {--force : Skip confirmation prompts}';
+                            {--force : Skip confirmation prompts}
+                            {--skip-scan : Skip the security scan}';
 
     protected $description = 'Run all security commands to comprehensively secure the Laravel application';
 
@@ -54,6 +55,11 @@ class SecureAll extends BaseSecurityCommand
         $this->runSecureHtaccess();
         $this->runSecureSecurityFile();
         $this->runSecureRobots();
+
+        // Run security scan if not skipped
+        if (! $this->option('skip-scan')) {
+            $this->runSecurityScan();
+        }
 
         if (! $this->option('skip-audit')) {
             $this->runSecurityAudit();
@@ -205,16 +211,46 @@ class SecureAll extends BaseSecurityCommand
     }
 
     /**
-     * Run security:audit command
+     * Run security:scan command
      */
-    private function runSecurityAudit(): void
+    private function runSecurityScan(): void
     {
-        $this->info('🔒 Step 5/5: Performing security audit...');
+        $this->info('🔍 Step 5/6: Running security vulnerability scan...');
 
         try {
             $options = [];
             if ($this->option('dry-run')) {
-                $options['--dry-run'] = true;
+                $options['--detailed'] = true;
+            }
+
+            $result = $this->call('security:scan', $options);
+
+            if ($result === 0) {
+                $this->successfulCommands[] = 'security:scan';
+                $this->addResult('Commands', '✓ Security vulnerability scan completed successfully');
+            } else {
+                $this->failedCommands[] = 'security:scan';
+                $this->addResult('Errors', '✗ Security vulnerability scan failed');
+            }
+        } catch (\Exception $e) {
+            $this->failedCommands[] = 'security:scan';
+            $this->addResult('Errors', '✗ Error during security scan: ' . $e->getMessage());
+        }
+
+        $this->newLine();
+    }
+
+    /**
+     * Run security:audit command
+     */
+    private function runSecurityAudit(): void
+    {
+        $this->info('🔒 Step 6/6: Performing security audit...');
+
+        try {
+            $options = [];
+            if ($this->option('dry-run')) {
+                $options['--detailed'] = true;
             }
 
             $result = $this->call('security:audit', $options);
