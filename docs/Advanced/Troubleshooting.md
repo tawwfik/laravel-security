@@ -288,4 +288,23 @@ To avoid issues:
 3. **Use `--dry-run`** to preview changes
 4. **Keep backups** of important files
 5. **Monitor logs** regularly
-6. **Update regularly** to latest version 
+6. **Update regularly** to latest version
+
+## Security Scan Troubleshooting
+
+### Common Issues
+
+- **The "dry-run" option does not exist**
+  - Make sure you are using the latest version of the package. The `security:scan` command now supports `--dry-run`.
+- **Risk score is low**
+  - Review the vulnerabilities and warnings in the scan output. Address each item to improve your score.
+- **Scan report not generated**
+  - Ensure the path provided to `--report` is writable.
+
+### Interpreting the Risk Score
+
+- **80-100**: Good security posture
+- **60-79**: Moderate risks, review warnings
+- **Below 60**: Significant vulnerabilities, immediate action recommended
+
+**Tip:** Run `php artisan security:scan --detailed` for more information on each finding. 

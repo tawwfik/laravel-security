@@ -19,6 +19,7 @@ namespace Tawfik\LaravelSecurity\Commands;
 class SecurityScan extends BaseSecurityCommand
 {
     protected $signature = 'security:scan
+                            {--dry-run : Show what would be scanned without making changes}
                             {--format=text : Output format (text, json, html)}
                             {--fix : Automatically fix issues where possible}
                             {--detailed : Show detailed information}
@@ -293,7 +294,7 @@ class SecurityScan extends BaseSecurityCommand
     /**
      * Display scan results
      */
-    private function displayResults(): void
+    protected function displayResults(): void
     {
         $this->newLine();
         $this->info('📊 Security Vulnerability Scan Results');

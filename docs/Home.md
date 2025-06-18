@@ -52,6 +52,32 @@ Welcome to the Laravel Security Package documentation! This wiki provides compre
 - Comprehensive security audit
 - Advanced middleware support
 
+## Vulnerability Scanner
+
+The package now includes a powerful vulnerability scanner:
+
+- **Command:** `php artisan security:scan`
+- **Options:**
+  - `--format=text|json|html` (output format)
+  - `--report=filename` (save report to file)
+  - `--detailed` (show detailed info)
+  - `--dry-run` (no changes)
+- **Integration:**
+  - Included in `secure:all` by default (use `--skip-scan` to skip)
+
+**Example:**
+
+```bash
+php artisan security:scan --format=json --report=security-report.json
+```
+
+**CI/CD Example:**
+
+```yaml
+- name: Run Laravel Security Scan
+  run: php artisan security:scan --format=json --report=security-scan-report.json
+```
+
 ---
 
 **Note**: This wiki is actively maintained. If you find any issues or have suggestions, please create an issue or start a discussion. 

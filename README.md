@@ -142,21 +142,26 @@ php artisan secure:robots \
 
 ### Advanced Vulnerability Scanner
 
+The package now includes a powerful vulnerability scanner:
+
 ```bash
-# Run comprehensive vulnerability scan
+# Run a comprehensive vulnerability scan
 php artisan security:scan
 
-# Generate JSON report
+# Output as JSON
 php artisan security:scan --format=json
 
-# Generate HTML report
+# Output as HTML
 php artisan security:scan --format=html
 
-# Save report to specific file
+# Save report to a specific file
 php artisan security:scan --report=security-report.json
 
 # Show detailed information
 php artisan security:scan --detailed
+
+# Run in dry-run mode (no changes)
+php artisan security:scan --dry-run
 ```
 
 **Scans for:**
@@ -174,6 +179,23 @@ php artisan security:scan --detailed
 - Detailed vulnerability categorization
 - Actionable recommendations
 - Comprehensive reporting
+
+### CI/CD Integration Example
+
+Add this to your GitHub Actions or other CI pipeline:
+
+```yaml
+- name: Run Laravel Security Scan
+  run: php artisan security:scan --format=json --report=security-scan-report.json
+```
+
+### Integration in secure:all
+
+The `secure:all` command now runs the vulnerability scanner by default. Use `--skip-scan` to skip it:
+
+```bash
+php artisan secure:all --skip-scan
+```
 
 ### Comprehensive Security Audit
 
@@ -350,90 +372,3 @@ security_check:
     reports:
       junit: security-audit-report.xml
 ```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Permission Errors**
-   ```bash
-   # Fix file permissions
-   chmod 600 .env
-   chmod 755 storage bootstrap/cache
-   ```
-
-2. **HTAccess Errors**
-   ```bash
-   # Validate .htaccess
-   apache2ctl -t
-   ```
-
-3. **Configuration Issues**
-   ```bash
-   # Clear cache
-   php artisan config:clear
-   php artisan cache:clear
-   ```
-
-## Contributing
-
-We welcome contributions! Please follow these steps:
-
-1. Fork the project
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for details.
-
-## Support
-
-### Getting Help
-
-- **📖 Documentation**: [Documentation](https://github.com/tawwfik/laravel-security/tree/main/docs)
-- **📋 Installation Guide**: [Installation Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Installation.md)
-- **🔧 Troubleshooting**: [Troubleshooting Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Advanced/Troubleshooting.md)
-- **🐛 Bug Reports**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
-- **💬 Discussions**: [GitHub Discussions](https://github.com/tawwfik/laravel-security/discussions)
-- **📧 Email Support**: `taww002016@gmail.com`
-
-### Quick Support
-
-If you need immediate help:
-
-1. **Check the documentation** - Most questions are answered in the wiki
-2. **Search existing issues** - Your problem might already be solved
-3. **Create a new issue** - For bugs or feature requests
-4. **Start a discussion** - For questions and general help
-5. **Email support** - For security vulnerabilities or private matters
-
-### Before Asking for Help
-
-Please include the following information when reporting issues:
-
-- Laravel version
-- PHP version
-- Package version
-- Error messages (if any)
-- Steps to reproduce the issue
-- Expected vs actual behavior
-
-## Security
-
-If you discover a security vulnerability, please don't open a public issue. Instead, send an email to `taww002016@gmail.com`.
-
-## Updates
-
-### Version 1.0.0
-- Initial release
-- All basic security commands
-- Advanced middleware
-- Comprehensive security audit
-- English documentation
-
----
-
-**Note**: This package is designed to improve the security of Laravel applications, but it does not guarantee complete security. It's always recommended to follow security best practices and conduct regular security testing. 

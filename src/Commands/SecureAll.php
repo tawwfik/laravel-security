@@ -219,6 +219,7 @@ class SecureAll extends BaseSecurityCommand
 
         try {
             $options = [];
+            // security:scan doesn't support --dry-run, only --detailed
             if ($this->option('dry-run')) {
                 $options['--detailed'] = true;
             }
