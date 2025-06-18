@@ -1,0 +1,45 @@
+# Composer
+/vendor/
+composer.lock
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Cache
+.phpunit.result.cache
+
+# Testing
+/coverage/
+/tests/coverage/
+
+# Build artifacts
+/build/
+/dist/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Backup files
+*.backup.*
+*.bak
+*.old
+
+# Temporary files
+*.tmp
+*.temp
+
+# Security audit reports
+security-audit-report.*
+security-hardening-report.* 

@@ -1,0 +1,56 @@
+{
+    "name": "tawfik/laravel-security",
+    "description": "A comprehensive Laravel security package providing enhanced security hardening at application and server level with zero external dependencies",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "security",
+        "hardening",
+        "fortify",
+        "htaccess",
+        "env",
+        "robots",
+        "security-txt",
+        "csrf",
+        "xss",
+        "authentication"
+    ],
+    "authors": [
+        {
+            "name": "Tawfik",
+            "email": "security@tawfik.dev"
+        }
+    ],
+    "require": {
+        "php": "^8.0",
+        "laravel/framework": "^9.0|^10.0|^11.0|^12.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0|^10.0",
+        "orchestra/testbench": "^7.0|^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Tawfik\\LaravelSecurity\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tawfik\\LaravelSecurity\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Tawfik\\LaravelSecurity\\LaravelSecurityServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
