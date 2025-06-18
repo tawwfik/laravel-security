@@ -250,8 +250,8 @@ composer show tawfik/laravel-security
 
 If you can't resolve an issue:
 
-1. **Search existing issues**: [GitHub Issues](https://github.com/tawfik/laravel-security/issues)
-2. **Check discussions**: [GitHub Discussions](https://github.com/tawfik/laravel-security/discussions)
+1. **Search existing issues**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
+2. **Check discussions**: [GitHub Discussions](https://github.com/tawwfik/laravel-security/discussions)
 3. **Create a new issue** with:
    - Laravel version
    - PHP version

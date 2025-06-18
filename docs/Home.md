@@ -41,8 +41,8 @@ Welcome to the Laravel Security Package documentation! This wiki provides compre
 
 ## 🆘 Need Help?
 
-- **Issues**: [GitHub Issues](https://github.com/tawfik/laravel-security/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/tawfik/laravel-security/discussions)
+- **Issues**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/tawwfik/laravel-security/discussions)
 - **Email**: `taww002016@gmail.com`
 
 ## 🔄 Recent Updates

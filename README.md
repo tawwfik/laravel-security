@@ -357,7 +357,9 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ### Getting Help
 
-- **📖 Documentation**: [GitHub Wiki](https://github.com/tawwfik/laravel-security/wiki)
+- **�� Documentation**: [Documentation](https://github.com/tawwfik/laravel-security/tree/main/docs)
+- **📋 Installation Guide**: [Installation Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Installation.md)
+- **🔧 Troubleshooting**: [Troubleshooting Guide](https://github.com/tawwfik/laravel-security/blob/main/docs/Advanced/Troubleshooting.md)
 - **🐛 Bug Reports**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
 - **💬 Discussions**: [GitHub Discussions](https://github.com/tawwfik/laravel-security/discussions)
 - **📧 Email Support**: `taww002016@gmail.com`

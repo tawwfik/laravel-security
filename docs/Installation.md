@@ -170,6 +170,6 @@ After installation, you can:
 If you encounter any issues during installation:
 
 - Check the [Troubleshooting Guide](Advanced/Troubleshooting.md)
-- Search [GitHub Issues](https://github.com/tawfik/laravel-security/issues)
-- Start a [Discussion](https://github.com/tawfik/laravel-security/discussions)
+- Search [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
+- Start a [Discussion](https://github.com/tawwfik/laravel-security/discussions)
 - Email support: `taww002016@gmail.com` 
