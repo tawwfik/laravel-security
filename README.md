@@ -355,13 +355,37 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 
 ## Support
 
-- **Documentation**: [GitHub Wiki](https://github.com/tawfik/laravel-security/wiki)
-- **Issues**: [GitHub Issues](https://github.com/tawfik/laravel-security/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/tawfik/laravel-security/discussions)
+### Getting Help
+
+- **📖 Documentation**: [GitHub Wiki](https://github.com/tawwfik/laravel-security/wiki)
+- **🐛 Bug Reports**: [GitHub Issues](https://github.com/tawwfik/laravel-security/issues)
+- **💬 Discussions**: [GitHub Discussions](https://github.com/tawwfik/laravel-security/discussions)
+- **📧 Email Support**: `taww002016@gmail.com`
+
+### Quick Support
+
+If you need immediate help:
+
+1. **Check the documentation** - Most questions are answered in the wiki
+2. **Search existing issues** - Your problem might already be solved
+3. **Create a new issue** - For bugs or feature requests
+4. **Start a discussion** - For questions and general help
+5. **Email support** - For security vulnerabilities or private matters
+
+### Before Asking for Help
+
+Please include the following information when reporting issues:
+
+- Laravel version
+- PHP version
+- Package version
+- Error messages (if any)
+- Steps to reproduce the issue
+- Expected vs actual behavior
 
 ## Security
 
-If you discover a security vulnerability, please don't open a public issue. Instead, send an email to `security@tawfik.dev`.
+If you discover a security vulnerability, please don't open a public issue. Instead, send an email to `taww002016@gmail.com`.
 
 ## Updates
 
